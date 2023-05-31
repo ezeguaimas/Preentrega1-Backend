@@ -32,8 +32,7 @@ router.post("/:cid/product/:pid", (req, res) => {
   try {
     const cartId = req.params.cid;
     const productId = req.params.pid;
-    const quantity = req.body.quantity;
-    const result = cartManager.addProductToCart(cartId, productId, quantity);
+    const result = cartManager.addProductToCart(cartId, productId);
 
     if (result.error) {
       res.status(400).json({ error: result.error });

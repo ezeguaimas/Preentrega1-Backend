@@ -48,7 +48,7 @@ export default class ProductManager {
       return "Error: El código del producto ya existe";
     }
 
-    const uniqueId = uuidv4(); // Generador de ID único
+    const uniqueId = uuidv4(); // Generador de ID único para cada producto
     product.id = uniqueId;
 
     this.products.push(product);
@@ -70,17 +70,20 @@ export default class ProductManager {
   updateProduct(id, updatedFields) {
     try {
       const productIndex = this.products.findIndex(
-      (product) => product.id === id
-    );
-    if (productIndex !== -1) {
-      const updatedProduct = {
-        ...this.products[productIndex],
-        ...updatedFields,
-      };
-      this.products[productIndex] = updatedProduct;
-      this.saveProducts();
-    }
-   } catch (error) {
+        (product) => product.id === id
+      );
+      if (productIndex !== -1) {
+        const updatedProduct = {
+          ...this.products[productIndex],
+          ...updatedFields,
+        };
+        this.products[productIndex] = updatedProduct;
+        this.saveProducts();
+        return "Producto actualizado exitosamente";
+      } else {
+        return "Error: Producto no encontrado";
+      }
+    } catch (error) {
       return "Error: Producto no encontrado";
     }
   }

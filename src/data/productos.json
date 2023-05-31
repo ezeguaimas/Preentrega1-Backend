@@ -174,5 +174,71 @@
     "category": "category body",
     "thumbnails": [],
     "id": "4d5c143f-e2c8-487c-92fe-1f0e3c27222f"
+  },
+  {
+    "title": "producto prueba con uuid desde body",
+    "description": "producto prueba desde post",
+    "code": "a654654ado2",
+    "price": 555,
+    "status": true,
+    "stock": 20,
+    "category": "category body",
+    "thumbnails": [],
+    "id": "cce2a240-bdd1-4110-8121-d55f7f331bf2"
+  },
+  {
+    "title": "producto prueba con uuid desde body",
+    "description": "producto prueba desde post",
+    "code": "a65465488ado2",
+    "price": 555,
+    "status": true,
+    "stock": 20,
+    "category": "category body",
+    "thumbnails": [],
+    "id": "23a2aa03-a06f-43b6-9dff-fda804630884"
+  },
+  {
+    "title": "producto prueba con uuid desde body",
+    "description": "producto prueba desde post",
+    "code": "a65465488a899do2",
+    "price": 555,
+    "status": true,
+    "stock": 20,
+    "category": "category body",
+    "thumbnails": [],
+    "id": "5ba30587-27da-45b7-83ef-1bc0c85a60dc"
+  },
+  {
+    "title": "producto prueba con uuid desde body",
+    "description": "producto prueba desde post",
+    "code": "a65465632a899do2",
+    "price": 555,
+    "status": true,
+    "stock": 20,
+    "category": "category body",
+    "thumbnails": [],
+    "id": "30359b6f-173c-46ce-a2c6-0f63c4925fdd"
+  },
+  {
+    "title": "producto prueba con uuid desde body",
+    "description": "producto prueba desde post",
+    "code": "a654610032a899do2",
+    "price": 555,
+    "status": true,
+    "stock": 20,
+    "category": "category body",
+    "thumbnails": [],
+    "id": "8f1b83c7-7fc0-48b5-b7ac-e6ad26adeb7f"
+  },
+  {
+    "title": "producto prueba con uuid desde body",
+    "description": "producto prueba desde post modificado",
+    "code": "a654610sdsd99do2",
+    "price": 555,
+    "status": true,
+    "stock": 20,
+    "category": "category body",
+    "thumbnails": [],
+    "id": "8c91d896-c238-4b1b-a7ca-eb31561b7650"
   }
 ]

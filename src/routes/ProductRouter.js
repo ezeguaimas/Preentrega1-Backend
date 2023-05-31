@@ -35,46 +35,42 @@ router.get("/:pid", (req, res) => {
   }
 });
 
-router.post("/", (req, res) => {
+router.post("/", async (req, res) => {
   try {
     const product = req.body;
-    const result = productManager.addProduct(product);
+    productManager.addProduct(product);
 
-    if (result.error) {
-      res.status(400).json({ error: result.error });
-    } else {
-      res.status(201).json(result);
-    }
+    res.status(201).json({ message: "Producto agregado exitosamente" });
   } catch (error) {
     res.status(500).json({ error: "Error al agregar el producto" });
   }
 });
 
-router.put("/:pid", (req, res) => {
+router.put("/:pid", async (req, res) => {
   try {
     const productId = req.params.pid;
     const updatedFields = req.body;
-    const result = productManager.updateProduct(productId, updatedFields);
+    const result = await productManager.updateProduct(productId, updatedFields);
 
-    if (result.error) {
-      res.status(400).json({ error: result.error });
+    if (result === "Error: Producto no encontrado") {
+      res.status(404).json({ error: result });
     } else {
-      res.status(200).json(result);
+      res.status(200).json({ message: "Producto modificado exitosamente" });
     }
   } catch (error) {
     res.status(500).json({ error: "Error al actualizar el producto" });
   }
 });
 
-router.delete("/:pid", (req, res) => {
+router.delete("/:pid", async (req, res) => {
   try {
     const productId = req.params.pid;
     const result = productManager.deleteProduct(productId);
 
-    if (result.error) {
-      res.status(400).json({ error: result.error });
+    if (result === "Error: Producto no encontrado") {
+      res.status(404).json({ error: result });
     } else {
-      res.status(200).json(result);
+      res.status(200).json({ message: "Producto eliminado exitosamente" });
     }
   } catch (error) {
     res.status(500).json({ error: "Error al eliminar el producto" });

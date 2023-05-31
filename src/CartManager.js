@@ -1,4 +1,6 @@
 import fs from "fs";
+import { v4 as uuidv4 } from "uuid";
+
 const { readFileSync, writeFileSync } = fs;
 
 const cartFilePath = "./data/carrito.json";
@@ -28,7 +30,7 @@ export default class CartManager {
   }
 
   createCart() {
-    const cartId = this.generateCartId();
+    const cartId = uuidv4(); // Generador de ID único para cada carrito
     const cart = {
       id: cartId,
       products: [],
@@ -38,21 +40,12 @@ export default class CartManager {
     return cart;
   }
 
-  generateCartId() {
-    const usedIds = this.cart.map((cart) => cart.id);
-    let newId = 1;
-    while (usedIds.includes(newId)) {
-      newId++;
-    }
-    return newId;
-  }
-
   getCartById(cartId) {
     const cart = this.cart.find((cart) => cart.id === cartId);
     return cart;
   }
 
-  addProductToCart(cartId, productId, quantity) {
+  addProductToCart(cartId, productId) {
     const cart = this.getCartById(cartId);
     if (!cart) {
       return { error: "Carrito no encontrado" };
@@ -61,10 +54,10 @@ export default class CartManager {
     const existingProduct = cart.products.find(
       (product) => product.id === productId
     );
-    if (existingProduct) {
-      existingProduct.quantity += quantity;
+    if (!existingProduct) {
+      cart.products.push({ id: productId, quantity: 1 });
     } else {
-      cart.products.push({ id: productId, quantity });
+      existingProduct.quantity += 1;
     }
 
     this.saveCart();

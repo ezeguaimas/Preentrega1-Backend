@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 // Ruta de productos
 app.use("/api/products", ProductRouter);
 
-// Ruta de carritos
+// Ruta de carrito
 app.use("/api/carts", CartRouter);
 
 // Iniciar el servidor
