@@ -1,5 +1,7 @@
 import fs from "fs";
 import { v4 as uuidv4 } from "uuid";
+import ProductManager from "./ProductManager.js";
+const productManager = new ProductManager();
 
 const { readFileSync, writeFileSync } = fs;
 
@@ -49,6 +51,11 @@ export default class CartManager {
     const cart = this.getCartById(cartId);
     if (!cart) {
       return { error: "Carrito no encontrado" };
+    }
+
+    const product = productManager.getProductById(productId);
+    if (!product) {
+      return { error: "El producto que intenta agregar al carrito no existe" };
     }
 
     const existingProduct = cart.products.find(
